@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Automarket.Domain.Entity.Car>
+    
+
+@{
+    ViewBag.Title = "title";
+    string im = "BMW X5";
+    string uu = "";
+    string us = "";
+    //Layout = " _Layout ";
+}
+
+<div id="myBtnContainer">
+    <button class="btn active" onclick="filterSelection('all')">Показать все</button>
+    <button class="btn" onclick="filterSelection('PessagerCar')">Легковой автомобиль</button>
+    <button class="btn" onclick="filterSelection('Sedan')">Седан</button>
+    <button class="btn" onclick="filterSelection('HatchBack')">Хэтчбек</button>
+    <button class="btn" onclick="filterSelection('Minivan')">Минивен</button>
+    <button class="btn" onclick="filterSelection('Sportcar')">Спортивная машина</button>
+    <button class="btn" onclick="filterSelection('Suv')">Внедорожник</button>
+    <button class="btn" onclick="filterSelection('Crossover')">Кроссовер</button>
+  </div>
+<div class="container">
+@foreach(var car in Model){
+    if (car.Name == "BMW X5"){
+        im = "BMW.jpg";
+        uu = "Suv";
+            us = "Внедорожник";
+        }
+    if (car.Name == "Audi Q8")
+    {
+        im = "AUDI.jpg";
+        uu = "Crossover";
+            us = "Кроссовер";
+        }
+    if (car.Name == "Jeep Cherokee")
+    {
+        im = "Jeep.jpg";
+        uu = "Suv";
+            us = "Внедорожник";
+        }
+        <div class="filterDiv @uu">
+            <a asp-action="GetCar" asp-route-id="@car.Id" class="card">
+                <img src="/css/image/@im" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
+                        <img class="card__thumb" src="/css/image/l.svg" alt="" />
+                        <div class="card__header-text">
+                            <h3 class="card__title">@car.Name</h3>
+                            <span class="card__status">@car.Price</span>
+                            <span class="card__status">@us</span>
+                        </div>
+                        
+                    </div>
+                    <p class="card__description">@car.Description</p>
+                </div>
+            </a>
+    </div>
+    
+
+}
+</div>
+<script>
+    filterSelection("all")
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+    // Show filtered elements
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+            }
+        }
+    }
+
+    // Hide elements that are not selected
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+    // Add active class to the current control button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>

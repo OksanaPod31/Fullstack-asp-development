@@ -1,0 +1,49 @@
+﻿@font-face {
+    font-family: 'TTtravelsRegular';
+    src: url('Fonts/TTtravels/TTTravels-Thin.woff') format('woff');
+}
+@font-face {
+    font-family: "TTtravelsDemiBold";
+    src: url("Fonts/TTtravels/TTTravels-DemiBold.ttf");
+}
+.carOne img{
+    width: 400px;
+    height: 320px;
+    border-radius: 20px;
+}
+.carOne {
+    margin-left: 15%;
+    
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    background-color: #272727;
+    border-radius: 30px;
+    padding: 40px;
+    margin-top: 80px;
+    color: white;
+    font-family: TTtravelsRegular;
+}
+.Desc{
+    width: 700px;
+}
+.Desc :first-child {
+    font-family: TTtravelsDemiBold;
+    font-size: 20px;
+}
+.Desc a{
+    background-color: #a22727;
+    border-radius: 30px;
+    text-decoration: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: white;
+   
+    font-family: TTtravelsDemiBold;
+}
+    .Desc a:hover {
+        box-shadow: 0 0 20px #ca272773;
+        
+    }

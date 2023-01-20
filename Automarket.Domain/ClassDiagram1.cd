@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Automarket.Domain.Entity.Car" Collapsed="true">
+    <Position X="10" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAYAgAAAAAAAAAAQBAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Entity\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Automarket.Domain.Response.BaseResponse&lt;T&gt;" Collapsed="true">
+    <Position X="8.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAABAAIAAAAAAAAAA=</HashCode>
+      <FileName>Response\BaseResponse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Automarket.Domain.ViewModels.Car.CarViewModel" Collapsed="true">
+    <Position X="15.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAYAgAAAAAAAAAAQBAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>ViewModels\Car\CarViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Automarket.Domain.Response.IBaseResponse&lt;T&gt;" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAIAAAAAAAAAA=</HashCode>
+      <FileName>Response\BaseResponse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Automarket.Domain.Enum.TypeCar" Collapsed="true">
+    <Position X="10.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAIAAAABAgAAAIAAAIAAAAAAAAAAAQ=</HashCode>
+      <FileName>Enum\TypeCar.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Automarket.Domain.Enum.StatusCode" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAABAAAACAA=</HashCode>
+      <FileName>Enum\StatusCode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

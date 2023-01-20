@@ -1,0 +1,32 @@
+﻿@model Automarket.Domain.Entity.Car
+
+@{
+    ViewBag.Title = "title";
+    //Layout = " _Layout ";
+    string im = "";
+    switch(Model.Name){
+        case "BMW X5":
+            im = "BMW.jpg";
+            break;
+        case "Audi Q8":
+            im = "AUDI.jpg";
+            break;
+        case "Jeep Cherokee":
+            im = "Jeep.jpg";
+            break;
+
+    }
+}
+<div class="carOne">
+
+    <img src="~/css/Image/@im"/>
+    <div class="Desc"> 
+        <p>@Model.Name</p>
+        <p>@Model.Price ₽</p>
+        <p>@Model.Description</p>
+        <br>
+        <a asp-action="GetCars">К списку</a>
+    </div>
+    
+</div>
+
