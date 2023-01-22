@@ -1,0 +1,110 @@
+﻿
+@font-face {
+    font-family: 'TTtravelsRegular';
+    src: url('Fonts/TTtravels/TTTravels-Thin.woff') format('woff');
+}
+.containerCr {
+    background-image: url(./Image/re6.svg);
+    background-size: cover;
+    width: 1000px;
+    height: 500px;
+    margin: 50px 175px;
+    font-family: TTtravelsRegular;
+}
+
+    .container h2 {
+        color: white;
+        margin-left: 330px;
+        padding-top: 20px;
+    }
+
+.formItems {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    margin-left: 330px;
+    margin-top: 50px;
+    color: white;
+    font-weight: 200;
+}
+
+.Item label, input {
+    display: block;
+}
+
+.Item {
+    margin-bottom: 40px;
+}
+
+    .Item:last-child {
+        width: 190px;
+    }
+
+input {
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+}
+
+.ItemBlock input, textarea, select {
+    display: block;
+    
+}
+
+.ItemBlock {
+    margin-bottom: 40px;
+}
+
+textarea {
+    background-color: #5F5F5F;
+    border-radius: 6px;
+    width: 200px;
+    height: 50px;
+    color: white;
+}
+
+select {
+    background-color: #5F5F5F;
+    color: white;
+    height: 30px;
+    border-radius: 6px;
+}
+
+.BlockButt {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+    .BlockButt button {
+        padding: 10px 30px;
+        border-radius: 20px;
+        font-size: 13px;
+        border: none;
+        color: white;
+    }
+
+.createbtn {
+    background-color: #9F2525;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 13px;
+    border: none;
+}
+
+.cancelbth {
+    background-color: #5F5F5F;
+}
+
+    .cancelbth:hover {
+        box-shadow: 0 0 20px #5F5F5F;
+    }
+
+.createbtn:hover {
+    box-shadow: 0 0 20px #9F2525;
+}
+.fileW{
+    width: 300px;
+}

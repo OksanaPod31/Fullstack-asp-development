@@ -1,4 +1,67 @@
 ﻿@model Automarket.Domain.ViewModels.Car.CarViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Automarket.Domain.Enum;
+@using Automarket.Domain.Extensions;
 @{
+    
+    
 }
-<h1>Страница save</h1>
+<div class="containerCr">
+    <form method="POST" asp-controller="Car" asp-action="Save2" enctype="multipart/form-data" id="formSaveCar">
+        <h2>Добавить новый автомобиль</h2>
+        <div asp-validation-summary="All" style="font-size:23px; font-family:Impact, serif" class="text-danger text-center"></div>
+        <input asp-for="Id" hidden />
+        <div class="formItems">
+            <div class="Inlines">
+                <div class="Item">
+                    <label>Название</label>
+                    <input type="text" asp-for="@Model.Name" />
+                    
+                </div>
+                <div class="Item">
+                    <label>Модель</label>
+                    <input asp-for="@Model.Model" type="text" />
+                </div>
+                <div class="Item">
+                    <label>Скорость</label>
+                    <input asp-for="@Model.Speed" type="text" />
+                </div>
+                <div class="Item">
+                    <label>Цена</label>
+                    <input asp-for="@Model.Price" type="text" />
+                </div>
+            </div>
+
+            <div class="Blocked">
+                <div class="ItemBlock">
+                    <label>Описание</label>
+                    <textarea asp-for ="@Model.Description"></textarea>
+                </div>
+                <div class="ItemBlock">
+                    <label>Тип машины</label>
+                    <select asp-for="@Model.TypeCar">
+                        <option value="@TypeCar.PassengerCar">@EnumExtension.GetDisplayName(TypeCar.PassengerCar)</option>
+                        <option value="@TypeCar.Sedan">@EnumExtension.GetDisplayName(TypeCar.Sedan)</option>
+                        <option value="@TypeCar.HatchBack">@EnumExtension.GetDisplayName(TypeCar.HatchBack)</option>
+                        <option value="@TypeCar.Crossover">@EnumExtension.GetDisplayName(TypeCar.Crossover)</option>
+                        <option value="@TypeCar.Minivan">@EnumExtension.GetDisplayName(TypeCar.Minivan)</option>
+                        <option value="@TypeCar.Sportscar">@EnumExtension.GetDisplayName(TypeCar.Sportscar)</option>
+                        <option value="@TypeCar.Suv">@EnumExtension.GetDisplayName(TypeCar.Suv)</option>
+                    </select>
+                </div>
+                <div class="ItemBlock">
+                    <label>Аватар</label>
+                    <input asp-for="@Model.Avatar" class="fileW" type="file" />
+                </div>
+                <div class="ItemBlock BlockButt">
+                    <div>
+                        <button class="cancelbth">Отмена</button>
+                    </div>
+                    <div>
+                        <input type="submit" class="createbtn" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

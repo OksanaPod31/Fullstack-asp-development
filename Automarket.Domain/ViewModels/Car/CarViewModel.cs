@@ -20,7 +20,6 @@ namespace Automarket.Domain.ViewModels.Car
         public string Name { get; set; }
 
         [Display(Name = "Описание")]
-        [MinLength(50, ErrorMessage = "Минимальная длина должна быть больше 50 символов")]
         public string Description { get; set; }
 
         [Display(Name = "Модель")]

@@ -6,6 +6,7 @@ using Automarket.Service.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Automarket.Controllers
 {
@@ -69,8 +70,9 @@ namespace Automarket.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save(CarViewModel model)
+        public async Task<IActionResult> Save2(CarViewModel model)
         {
+            ModelState.Remove("Id");
             if (ModelState.IsValid)
             {
                 if(model.Id == 0)
@@ -87,8 +89,29 @@ namespace Automarket.Controllers
                     await _carService.Edit(model.Id, model);
                 }
             }
-            return RedirectToAction("GetCars");
+            string errorMessages = "";
+            foreach (var item in ModelState)
+            {
+                
+                if (item.Value.ValidationState == ModelValidationState.Invalid)
+                {
+                    errorMessages = $"{errorMessages}\nОшибки для свойства {item.Key}:\n";
+                    foreach (var error in item.Value.Errors)
+                    {
+                        errorMessages = $"{errorMessages}{error.ErrorMessage}\n";
+                    }
+                }
+            }
+            
+            return View();
         }
+
+        //[HttpPost]
+        //public JsonResult GetTypes()
+        //{
+        //    var types = _carService.GetType();
+        //    return Json(types.Data);
+        //}
 
 
 
