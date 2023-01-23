@@ -70,40 +70,36 @@ namespace Automarket.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Save2(CarViewModel model)
+        public async Task<IActionResult> Save(string name, string description, string model, double speed, decimal price, TypeCar typeCar, IFormFile avatar)
         {
+            CarViewModel Model = new CarViewModel()
+            {
+                Name = name,
+                Description = description,
+                Model = model,
+                Speed = speed,
+                Price = price,
+                TypeCar = typeCar,
+                Avatar = avatar
+            };
             ModelState.Remove("Id");
             if (ModelState.IsValid)
             {
-                if(model.Id == 0)
+                if (Model.Id == 0)
                 {
                     byte[] imageData;
-                    using(var binaryReader = new BinaryReader(model.Avatar.OpenReadStream()))
+                    using (var binaryReader = new BinaryReader(Model.Avatar.OpenReadStream()))
                     {
-                        imageData = binaryReader.ReadBytes((int)model.Avatar.Length);  
+                        imageData = binaryReader.ReadBytes((int)Model.Avatar.Length);
                     }
-                    await _carService.CreateCar(model, imageData);
+                    await _carService.CreateCar(Model, imageData);
                 }
                 else
                 {
-                    await _carService.Edit(model.Id, model);
+                    await _carService.Edit(Model.Id, Model);
                 }
-            }
-            string errorMessages = "";
-            foreach (var item in ModelState)
-            {
-                
-                if (item.Value.ValidationState == ModelValidationState.Invalid)
-                {
-                    errorMessages = $"{errorMessages}\nОшибки для свойства {item.Key}:\n";
-                    foreach (var error in item.Value.Errors)
-                    {
-                        errorMessages = $"{errorMessages}{error.ErrorMessage}\n";
-                    }
-                }
-            }
-            
-            return View();
+            }  
+            return Redirect("GetCars");
         }
 
         //[HttpPost]
@@ -112,6 +108,21 @@ namespace Automarket.Controllers
         //    var types = _carService.GetType();
         //    return Json(types.Data);
         //}
+
+
+//        string errorMessages = "";
+//            foreach (var item in ModelState)
+//            {
+                
+//                if (item.Value.ValidationState == ModelValidationState.Invalid)
+//                {
+//                    errorMessages = $"{errorMessages}\nОшибки для свойства {item.Key}:\n";
+//                    foreach (var error in item.Value.Errors)
+//                    {
+//                        errorMessages = $"{errorMessages}{error.ErrorMessage}\n";
+//                    }
+//}
+//            }
 
 
 

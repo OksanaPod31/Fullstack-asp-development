@@ -86,7 +86,7 @@ namespace Automarket.Service.Implementations
                     Model = carViewModel.Model,
                     Price = carViewModel.Price,
                     Name = carViewModel.Name,
-                    TypeCar = (TypeCar)Convert.ToInt32(carViewModel.TypeCar),
+                    TypeCar = carViewModel.TypeCar,
                     Avatar = imageData
                 };
                 await _carRepository.Create(car);

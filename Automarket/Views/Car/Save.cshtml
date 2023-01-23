@@ -2,44 +2,46 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @using Automarket.Domain.Enum;
 @using Automarket.Domain.Extensions;
-@{
-    
-    
-}
+
 <div class="containerCr">
-    <form method="POST" asp-controller="Car" asp-action="Save2" enctype="multipart/form-data" id="formSaveCar">
+    <form method="POST" asp-controller="Car" asp-action="Save" enctype="multipart/form-data" id="formSaveCar">
         <h2>Добавить новый автомобиль</h2>
-        <div asp-validation-summary="All" style="font-size:23px; font-family:Impact, serif" class="text-danger text-center"></div>
+        <div asp-validation-summary="ModelOnly"></div>
         <input asp-for="Id" hidden />
         <div class="formItems">
             <div class="Inlines">
                 <div class="Item">
                     <label>Название</label>
-                    <input type="text" asp-for="@Model.Name" />
+                    <input type="text" asp-for="Name" />
+                    <span asp-validation-for="Name"></span>
                     
                 </div>
                 <div class="Item">
                     <label>Модель</label>
-                    <input asp-for="@Model.Model" type="text" />
+                    <input asp-for="Model" type="text" />
+                    <span asp-validation-for="Model"></span>
                 </div>
                 <div class="Item">
                     <label>Скорость</label>
-                    <input asp-for="@Model.Speed" type="text" />
+                    <input asp-for="Speed" type="text" />
+                    <span asp-validation-for="Speed"></span>
                 </div>
                 <div class="Item">
                     <label>Цена</label>
-                    <input asp-for="@Model.Price" type="text" />
+                    <input asp-for="Price" type="text" />
+                    <span asp-validation-for="Price"></span>
                 </div>
             </div>
 
             <div class="Blocked">
                 <div class="ItemBlock">
                     <label>Описание</label>
-                    <textarea asp-for ="@Model.Description"></textarea>
+                    <textarea asp-for ="Description"></textarea>
+                    <span asp-validation-for="Description"></span>
                 </div>
                 <div class="ItemBlock">
                     <label>Тип машины</label>
-                    <select asp-for="@Model.TypeCar">
+                    <select asp-for="TypeCar">
                         <option value="@TypeCar.PassengerCar">@EnumExtension.GetDisplayName(TypeCar.PassengerCar)</option>
                         <option value="@TypeCar.Sedan">@EnumExtension.GetDisplayName(TypeCar.Sedan)</option>
                         <option value="@TypeCar.HatchBack">@EnumExtension.GetDisplayName(TypeCar.HatchBack)</option>
@@ -48,10 +50,12 @@
                         <option value="@TypeCar.Sportscar">@EnumExtension.GetDisplayName(TypeCar.Sportscar)</option>
                         <option value="@TypeCar.Suv">@EnumExtension.GetDisplayName(TypeCar.Suv)</option>
                     </select>
+                    <span asp-validation-for="TypeCar"></span>
                 </div>
                 <div class="ItemBlock">
                     <label>Аватар</label>
-                    <input asp-for="@Model.Avatar" class="fileW" type="file" />
+                    <input asp-for="Avatar" class="fileW" type="file" />
+                    <span asp-validation-for="Avatar"></span>
                 </div>
                 <div class="ItemBlock BlockButt">
                     <div>
@@ -65,3 +69,9 @@
         </div>
     </form>
 </div>
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
