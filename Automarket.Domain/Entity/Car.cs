@@ -11,4 +11,5 @@ public class Car
     public decimal Price { get; set; }
     public TypeCar TypeCar { get; set; }
     public byte[]? Avatar { get; set; }
+    public string? PathCar { get; set; }
 }

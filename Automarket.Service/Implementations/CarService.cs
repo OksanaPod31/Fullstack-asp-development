@@ -74,7 +74,7 @@ namespace Automarket.Service.Implementations
             }
         }
 
-        public async Task<IBaseResponse<Car>> CreateCar(CarViewModel carViewModel, byte[] imageData)
+        public async Task<IBaseResponse<Car>> CreateCar(CarViewModel carViewModel, byte[]? imageData, string? path2)
         {
             //var baseResponse = new BaseResponse<CarViewModel>();
             try
@@ -87,7 +87,8 @@ namespace Automarket.Service.Implementations
                     Price = carViewModel.Price,
                     Name = carViewModel.Name,
                     TypeCar = carViewModel.TypeCar,
-                    Avatar = imageData
+                    Avatar = imageData,
+                    PathCar = path2
                 };
                 await _carRepository.Create(car);
 

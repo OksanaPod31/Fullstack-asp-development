@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<Automarket.Domain.Entity.Car>
-    
+@using Automarket.Domain.Enum
+@using Automarket.Domain.Extensions
+@using System.Drawing
+
+
 
 @{
     ViewBag.Title = "title";
@@ -21,26 +25,39 @@
   </div>
 <div class="container">
 @foreach(var car in Model){
-    if (car.Name == "BMW X5"){
-        im = "BMW.jpg";
-        uu = "Suv";
-            us = "Внедорожник";
+    if (car.TypeCar == TypeCar.Minivan){
+            us = "Minivan";
         }
-    if (car.Name == "Audi Q8")
+    if (car.TypeCar == TypeCar.PassengerCar)
     {
-        im = "AUDI.jpg";
-        uu = "Crossover";
-            us = "Кроссовер";
+            us = "PessagerCar";
         }
-    if (car.Name == "Jeep Cherokee")
+    if (car.TypeCar == TypeCar.Sedan)
     {
-        im = "Jeep.jpg";
-        uu = "Suv";
-            us = "Внедорожник";
+            us = "Sedan";
         }
-        <div class="filterDiv @uu">
+    if (car.TypeCar == TypeCar.HatchBack)
+    {
+            us = "HatchBack";
+    }
+    if (car.TypeCar == TypeCar.Sportscar)
+    {
+            us = "Sportcar";
+    }
+    if (car.TypeCar == TypeCar.Suv)
+    {
+        us = "Suv";
+    }
+    if (car.TypeCar == TypeCar.Crossover)
+    {
+        us = "Crossover";
+    }
+        
+
+
+        <div class="filterDiv @us">
             <a asp-action="GetCar" asp-route-id="@car.Id" class="card">
-                <img src="/css/image/@im" class="card__image" alt="" />
+                <img src="~/css/Files/@car.PathCar" class="card__image" alt="" />
                 <div class="card__overlay">
                     <div class="card__header">
                         <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
@@ -48,7 +65,7 @@
                         <div class="card__header-text">
                             <h3 class="card__title">@car.Name</h3>
                             <span class="card__status">@car.Price</span>
-                            <span class="card__status">@us</span>
+                            <span class="card__status">@EnumExtension.GetDisplayName(car.TypeCar)</span>
                         </div>
                         
                     </div>

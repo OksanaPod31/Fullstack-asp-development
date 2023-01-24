@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(@"Data Source=D:\Data\CarsDataBase.db"));
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(@"Data Source=D:\Data\CarsDataBaseCopied.db"));
 builder.Services.AddTransient<IBaseRepository, CarRepository>();
 builder.Services.AddScoped<ICarService, CarService>();
 

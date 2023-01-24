@@ -13,10 +13,12 @@ namespace Automarket.Controllers
     public class CarController : Controller
     {
         private readonly ICarService _carService;
+        IWebHostEnvironment _appEnvironment;
 
-        public CarController(ICarService carService)
+        public CarController(ICarService carService, IWebHostEnvironment appEnvironment)
         {
             _carService = carService;
+            _appEnvironment = appEnvironment;
         }
 
         // GET: CarController
@@ -87,12 +89,20 @@ namespace Automarket.Controllers
             {
                 if (Model.Id == 0)
                 {
+                    // путь к папке Files
+                    string path = "/css/Files/" + avatar.FileName;
+                    // сохраняем файл в папку Files в каталоге wwwroot
+                    using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                    {
+                        await avatar.CopyToAsync(fileStream);
+                    }
+                    string path2 = avatar.FileName;
                     byte[] imageData;
                     using (var binaryReader = new BinaryReader(Model.Avatar.OpenReadStream()))
                     {
                         imageData = binaryReader.ReadBytes((int)Model.Avatar.Length);
                     }
-                    await _carService.CreateCar(Model, imageData);
+                    await _carService.CreateCar(Model, imageData, path2);
                 }
                 else
                 {

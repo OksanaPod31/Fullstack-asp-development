@@ -15,7 +15,7 @@ namespace Automarket.Service.Interfaces
         Task<IBaseResponse<List<Car>>> GetCars();
         Task<IBaseResponse<Car>> GetCar(int id);
         Task<IBaseResponse<Car>> GetCarByName(string name);
-        Task<IBaseResponse<Car>> CreateCar(CarViewModel carViewModel, byte[] imageData);
+        Task<IBaseResponse<Car>> CreateCar(CarViewModel carViewModel, byte[]? imageData, string? path2);
         Task<IBaseResponse<bool>> DeleteCar(int id);
         Task<IBaseResponse<Car>> Edit(int id, CarViewModel model);
 
