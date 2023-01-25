@@ -71,6 +71,7 @@ body {
     border-radius: calc(var(--curve) * 1px);
     overflow: hidden;
     text-decoration: none;
+    margin-bottom: 20px;
 }
 
 .card__image {
@@ -160,3 +161,17 @@ body {
     -webkit-line-clamp: 3;
     overflow: hidden;
 }
+.DelCar {
+    
+    padding: 12px 20px;
+    background-color: #9F2525;
+    border-radius: 18px;
+    border: 0px solid transparent;
+    color: white;
+    text-decoration: none;
+}
+    .DelCar:hover {
+        box-shadow: 0 0 20px #ca272773;
+        text-decoration: none;
+        color: white;
+    }

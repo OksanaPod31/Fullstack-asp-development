@@ -23,9 +23,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\css\Fonts\" />
       <Folder Include="wwwroot\css\Image\" />
-      <Folder Include="wwwroot\css\Files\" />
     </ItemGroup>
 
 </Project>

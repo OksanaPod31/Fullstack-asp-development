@@ -112,23 +112,30 @@ namespace Automarket.Service.Implementations
 
         public async Task<IBaseResponse<bool>> DeleteCar(int id)
         {
-            var baseResponse = new BaseResponse<bool>()
-            {
-                Data = true
-            };
-
+            //var baseResponse = new BaseResponse<bool>()
+            //{
+            //    Data = true
+            //};
             try
             {
-                var car = await  _carRepository.Get(id);
-                if(car == null)
+                var car = await _carRepository.GetAll().FirstOrDefaultAsync(x => x.Id == id);
+                if (car == null)
                 {
-                    baseResponse.Description = "User not found";
-                    baseResponse.StatusCode = StatusCode.UserNotFound;
-                    baseResponse.Data = false;
-                    return baseResponse;
+                    return new BaseResponse<bool>()
+                    {
+                        Description = "User not found",
+                        StatusCode = StatusCode.UserNotFound,
+                        Data = false
+                    };
                 }
+
                 await _carRepository.Delete(car);
-                return baseResponse;
+
+                return new BaseResponse<bool>()
+                {
+                    Data = true,
+                    StatusCode = StatusCode.OK
+                };
             }
             catch (Exception ex)
             {
@@ -137,10 +144,9 @@ namespace Automarket.Service.Implementations
                     Description = $"[DeleteCar] : {ex.Message}",
                     StatusCode = StatusCode.InternalError
                 };
-
             }
 
-        }
+        }    
 
         public async Task<IBaseResponse<List<Car>>> GetCars()
         {

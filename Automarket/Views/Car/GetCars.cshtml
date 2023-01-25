@@ -7,8 +7,7 @@
 
 @{
     ViewBag.Title = "title";
-    string im = "BMW X5";
-    string uu = "";
+   
     string us = "";
     //Layout = " _Layout ";
 }
@@ -72,6 +71,7 @@
                     <p class="card__description">@car.Description</p>
                 </div>
             </a>
+            <a asp-controller="Car" asp-action="Delete"  asp-route-id="@car.Id" class="DelCar">Удалить</a>
     </div>
     
 

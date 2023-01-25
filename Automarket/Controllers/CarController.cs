@@ -44,7 +44,7 @@ namespace Automarket.Controllers
             return RedirectToAction("Error"); //Перенаправление на представление с ошибкой
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var response = await _carService.DeleteCar(id);
@@ -196,7 +196,7 @@ namespace Automarket.Controllers
         // POST: CarController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete2(int id, IFormCollection collection)
         {
             try
             {

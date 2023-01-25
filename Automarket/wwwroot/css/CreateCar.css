@@ -75,15 +75,18 @@ select {
 .BlockButt {
     display: flex;
     flex-direction: row;
+    align-items: baseline;
     gap: 10px;
 }
 
-    .BlockButt button {
+    .BlockButt a {
         padding: 10px 30px;
         border-radius: 20px;
         font-size: 13px;
         border: none;
         color: white;
+        text-decoration: none;
+        
     }
 
 .createbtn {
