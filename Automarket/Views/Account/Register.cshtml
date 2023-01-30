@@ -1,0 +1,45 @@
+﻿@model Automarket.Domain.ViewModels.Account.RegisterViewModel
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Регистрация";
+}
+
+ <form method="POST" asp-controller="Account" asp-action="Register">
+    <div class="containerReg">
+        <div asp-validation-summary="ModelOnly"></div>
+        <h2>Регистрация</h2>
+        <div class="formItemsReg">
+            <div class="InlinesReg">
+                <div class="ItemReg">
+                    <label asp-for="Name">Введите логин</label>
+                    <input asp-for="Name" type="text">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="ItemReg">
+                    <label asp-for="Password">Введите пароль</label>
+                    <input asp-for="Password" type="text">
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="ItemReg">
+                    <label asp-for="PasswordConfirm">Подтвердите пароль</label>
+                    <input asp-for="PasswordConfirm" type="text">
+                    <span asp-validation-for="PasswordConfirm"></span>
+                </div>
+            </div>
+            <div class="ItemBlockReg BlockButtReg">
+                <div>
+                    <a asp-controller="Home" asp-action="Index" class="cancelbthReg">Отмена</a>
+                </div>
+                <div>
+                    <input type="submit" class="createbtnReg" value="Войти"></input>
+                </div>
+            </div>
+        </div>
+</form>
+
+@section scripts{
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

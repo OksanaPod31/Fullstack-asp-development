@@ -1,0 +1,93 @@
+﻿@font-face {
+    font-family: 'TTtravelsRegular';
+    src: url('/fonts/TTtravels/TTTravels-Thin.woff') format('woff');
+}
+
+.containerReg {
+    background-image: url(./Image/re6.svg);
+    background-size: cover;
+    width: 700px;
+    height: 460px;
+    margin: 80px 350px;
+    font-family: TTtravelsRegular;
+}
+
+    .containerReg h2 {
+        color: white;
+        margin-left: 330px;
+        padding-top: 30px;
+    }
+
+.formItemsReg {
+    margin-left: 330px;
+    margin-top: 50px;
+    color: white;
+    font-weight: 200;
+}
+
+.ItemReg label, input {
+    display: block;
+}
+
+.ItemReg {
+    margin-bottom: 40px;
+}
+
+    .Item:last-child {
+        width: 190px;
+    }
+
+input {
+    border: none;
+    border-bottom: 1px solid white;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+}
+
+.BlockButtReg {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    text-decoration: none;
+}
+
+    .BlockButtReg a {
+        padding: 10px 30px;
+        border-radius: 20px;
+        font-size: 13px;
+        border: none;
+        color: white;
+        text-decoration: none;
+    }
+
+.createbtnReg {
+    background-color: #9F2525;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 13px;
+    border: none;
+    color: white;
+}
+
+.cancelbthReg {
+    background-color: #5F5F5F;
+    text-decoration: none;
+}
+
+    .cancelbthReg:hover {
+        box-shadow: 0 0 20px #5F5F5F;
+        text-decoration: none;
+    }
+
+.createbtnReg:hover {
+    box-shadow: 0 0 20px #9F2525;
+    text-decoration: none;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-size: 13px;
+    border: none;
+    color: white;
+}

@@ -25,18 +25,18 @@ namespace Automarket.DAL.Repositories
         //    return await _db.Car.ToListAsync();
         //}
 
-        public async Task<bool> Create(Car entity)
+        public async Task Create(Car entity)
         {
             await _db.Car.AddAsync(entity);
             await _db.SaveChangesAsync();
-            return true;
+            
         }
 
-        public async Task<bool>Delete(Car entity)
+        public async Task Delete(Car entity)
         {
             _db.Car.Remove(entity);
             await _db.SaveChangesAsync();
-            return true;
+            
         }
         public IQueryable<Car> GetAll()
         {

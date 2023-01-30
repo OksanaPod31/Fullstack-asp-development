@@ -43,7 +43,7 @@ namespace Automarket.Service.Implementations
                 return new BaseResponse<Car>()
                 {
                     Description = $"[GetCar] : {ex.Message}",
-                    StatusCode = StatusCode.InternalError
+                    StatusCode = StatusCode.InternalServerError
                 };
             }
         }
@@ -69,7 +69,7 @@ namespace Automarket.Service.Implementations
                 return new BaseResponse<Car>()
                 {
                     Description = $"[GetCarByName] : {ex.Message}",
-                    StatusCode = StatusCode.InternalError
+                    StatusCode = StatusCode.InternalServerError
                 };
             }
         }
@@ -103,7 +103,7 @@ namespace Automarket.Service.Implementations
                 return new BaseResponse<Car>()
                 {
                     Description = $"[CreateCar] : {ex.Message}",
-                    StatusCode = StatusCode.InternalError
+                    StatusCode = StatusCode.InternalServerError
                 };
             }
             
@@ -142,7 +142,7 @@ namespace Automarket.Service.Implementations
                 return new BaseResponse<bool>()
                 {
                     Description = $"[DeleteCar] : {ex.Message}",
-                    StatusCode = StatusCode.InternalError
+                    StatusCode = StatusCode.InternalServerError
                 };
             }
 
