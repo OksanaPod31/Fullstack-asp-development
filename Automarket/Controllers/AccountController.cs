@@ -43,5 +43,27 @@ namespace Automarket.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult Login() => View();
+
+        [HttpPost]
+        public async Task<IActionResult> Login(string name, string password)
+        {
+            LoginViewModel model = new LoginViewModel() { Name = name, Password = password };
+            if (ModelState.IsValid)
+            {
+                var response = await _accountService.Login(model);
+                if (response.StatusCode == Domain.Enum.StatusCode.OK)
+                {
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(response.Data));
+
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError("", response.Description);
+            }
+            return View(model);
+        }
     }
 }

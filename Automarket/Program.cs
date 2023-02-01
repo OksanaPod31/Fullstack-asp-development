@@ -4,6 +4,7 @@ using Automarket.DAL.Repositories;
 using Automarket.Domain.Entity;
 using Automarket.Service.Implementations;
 using Automarket.Service.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
@@ -18,6 +19,12 @@ builder.Services.AddScoped<IBaseRepository<User>, UserRepository>();
 builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+{
+    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+});
 
 var app = builder.Build();
 

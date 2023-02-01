@@ -1,0 +1,31 @@
+﻿@model Automarket.Domain.ViewModels.Account.LoginViewModel
+
+<form method="POST" asp-controller="Account" asp-action="Login">
+<div class="containerV">
+        <div asp-validation-summary="ModelOnly"></div>
+    <h2>Вход</h2>
+    <div class="formItemsV">
+        <div class="InlinesV">
+            <div class="ItemV">
+                <label asp-for="Name">Введите логин</label>
+                <input asp-for="Name" type="text">
+                    <span asp-validation-for="Name"></span>
+            </div>
+            <div class="ItemV">
+                <label asp-for="Password">Введите пароль</label>
+                <input asp-for="Password" type="text">
+                    <span asp-validation-for="Password"></span>
+            </div>
+        </div>
+        <div class="ItemBlockV BlockButtV">
+            <div>
+                <a asp-action="GetCars" asp-controller="Car" class="cancelbthV">Отмена</a>
+            </div>
+            <div>
+                <input type="submit" class="createbtnV" value="Войти" />
+            </div>
+        </div>
+    </div>
+
+</div>
+</form>
